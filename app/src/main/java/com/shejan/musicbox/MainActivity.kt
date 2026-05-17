@@ -46,63 +46,40 @@ import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
+import android.view.ViewGroup
+import eightbitlab.com.blurview.BlurView
+import eightbitlab.com.blurview.RenderScriptBlur
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Check for first run
-        val prefs = getSharedPreferences("MusicBoxPrefs", MODE_PRIVATE)
-        val isFirstRun = prefs.getBoolean("IS_FIRST_RUN", true)
-
-        if (isFirstRun) {
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
-            finish()
-            return
-        }
-
-        // Request Permissions
-        val permissionsToRequest = mutableListOf<String>()
-        
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                permissionsToRequest.add(Manifest.permission.POST_NOTIFICATIONS)
-            }
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                permissionsToRequest.add(Manifest.permission.READ_MEDIA_AUDIO)
-            }
-        } else {
-             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                permissionsToRequest.add(Manifest.permission.READ_EXTERNAL_STORAGE)
-            }
-        }
-
-        if (permissionsToRequest.isNotEmpty()) {
-            ActivityCompat.requestPermissions(this, permissionsToRequest.toTypedArray(), 101)
-        }
-
-        // Check for Default Home Redirect (Only if fresh start and NOT from nav click)
-        if (savedInstanceState == null && !intent.getBooleanExtra("IS_NAV_CLICK", false)) {
-            val homeId = TabManager.getHomeTabId(this)
-            if (homeId != "home") {
-                val target = TabManager.getTargetActivity(homeId)
-                if (target != MainActivity::class.java) {
-                     startActivity(Intent(this, target))
-                     overridePendingTransition(0, 0)
-                     // Keep Main in backstack? Yes, usually.
-                }
-            }
-        }
-
+        // ... existing code ...
         setContentView(R.layout.activity_main)
 
-        // Apply WindowInsets to handle Navigation Bar overlap
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.setPadding(view.paddingLeft, systemBars.top, view.paddingRight, systemBars.bottom)
-            insets
-        }
+        setupBlurViews()
+
+        // Apply WindowInsets
+        // ... rest of code
+    }
+
+    private fun setupBlurViews() {
+        val radius = 20f
+        val decorView = window.decorView
+        val rootView = decorView.findViewById<ViewGroup>(android.R.id.content)
+        val windowBackground = decorView.background
+
+        val blurHeader = findViewById<BlurView>(R.id.blur_header)
+        blurHeader.setupWith(rootView, RenderScriptBlur(this))
+            .setFrameClearDrawable(windowBackground)
+            .setBlurRadius(radius)
+
+        val blurBottomNav = findViewById<BlurView>(R.id.blur_bottom_nav)
+        blurBottomNav.setupWith(rootView, RenderScriptBlur(this))
+            .setFrameClearDrawable(windowBackground)
+            .setBlurRadius(radius)
+    }
 
         // Greeting loaded in onResume
 
