@@ -9,105 +9,108 @@
     android:background="@drawable/bg_main_gradient">
 
     <!-- Sticky Header Box -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_header"
-        android:layout_width="0dp"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blur_header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="16dp"
-        android:background="@drawable/bg_liquid_glass"
-
         android:layout_marginTop="8dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-
+        app:blurOverlayColor="#1AFFFFFF"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:elevation="8dp">
 
-        <TextView
-            android:id="@+id/tv_header_title"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_header"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TRACKS"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:letterSpacing="-0.05"
-            android:textAllCaps="true"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ll_header_actions"/>
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_liquid_glass">
 
-        <TextView
-            android:id="@+id/tv_tracks_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0 Songs"
-            android:textColor="@color/text_white_opacity_60"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_header_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_header_title"/>
+            <TextView
+                android:id="@+id/tv_header_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="TRACKS"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:letterSpacing="-0.05"
+                android:textAllCaps="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ll_header_actions"/>
 
-        <LinearLayout
-            android:id="@+id/ll_header_actions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+                android:id="@+id/tv_tracks_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 Songs"
+                android:textColor="@color/text_white_opacity_60"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_header_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_header_title"/>
 
-            <ImageButton
-                android:id="@+id/btn_sort"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:padding="6dp"
-                android:scaleType="fitCenter"
-                android:background="@drawable/bg_liquid_glass_card"
-                android:src="@drawable/ic_sort"
-                app:tint="@color/white"
-                android:layout_marginEnd="8dp" />
-            <ImageButton
-                android:id="@+id/btn_header_shuffle"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:padding="6dp"
-                android:scaleType="fitCenter"
-                android:background="@drawable/bg_liquid_glass_card"
-                android:src="@drawable/ic_shuffle"
-                app:tint="@color/white"
-                android:layout_marginEnd="8dp" />
-            <ImageButton
-                android:id="@+id/btn_header_repeat"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:padding="6dp"
-                android:scaleType="fitCenter"
-                android:background="@drawable/bg_liquid_glass_card"
-                android:src="@drawable/ic_repeat"
-                app:tint="@color/white"
-                android:layout_marginEnd="0dp" />
-            <ImageButton
-                android:id="@+id/btn_edit"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:padding="6dp"
-                android:scaleType="fitCenter"
-                android:background="@drawable/bg_liquid_glass_card"
-                android:src="@drawable/ic_edit"
-                app:tint="@color/white"
-                android:layout_marginStart="16dp"
-                android:visibility="gone"
-                tools:visibility="visible" />
+            <LinearLayout
+                android:id="@+id/ll_header_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-        </LinearLayout>
+                <ImageButton
+                    android:id="@+id/btn_sort"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/bg_liquid_glass_card"
+                    android:src="@drawable/ic_sort"
+                    app:tint="@color/white"
+                    android:layout_marginEnd="8dp" />
+                <ImageButton
+                    android:id="@+id/btn_header_shuffle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/bg_liquid_glass_card"
+                    android:src="@drawable/ic_shuffle"
+                    app:tint="@color/white"
+                    android:layout_marginEnd="8dp" />
+                <ImageButton
+                    android:id="@+id/btn_header_repeat"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/bg_liquid_glass_card"
+                    android:src="@drawable/ic_repeat"
+                    app:tint="@color/white"
+                    android:layout_marginEnd="0dp" />
+                <ImageButton
+                    android:id="@+id/btn_edit"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/bg_liquid_glass_card"
+                    android:src="@drawable/ic_edit"
+                    app:tint="@color/white"
+                    android:layout_marginStart="16dp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </eightbitlab.com.blurview.BlurView>
 
     <!-- Track List -->
     <androidx.recyclerview.widget.RecyclerView

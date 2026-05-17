@@ -1,34 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 1. The Liquid Pillar Base (Ultra Clear) -->
+    <!-- 1. BASE FROSTED LAYER (Ultra-Clear Refraction) -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#00FFFFFF" /> <!-- Optically clear for blur -->
+            <solid android:color="#0DFFFFFF" /> <!-- 5% White base for clarity -->
             <corners android:radius="100dp" />
+        </shape>
+    </item>
+
+    <!-- 2. INNER REFRACTION DEPTH (Set-in effect) -->
+    <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <stroke android:width="3dp" android:color="#08000000" /> <!-- Subtle 3% Black inner shadow -->
+            <corners android:radius="99dp" />
+        </shape>
+    </item>
+
+    <!-- 3. CHROMATIC RIM (Outer Hairline) -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="100dp" />
+            <stroke
+                android:width="0.8dp"
+                android:color="#4DFFFFFF" /> <!-- 30% White Rim -->
+        </shape>
+    </item>
+
+    <!-- 4. MAIN SPECULAR HIGHLIGHT (Top Reflection) -->
+    <item android:top="1dp" android:left="12dp" android:right="12dp" android:bottom="45dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#CCFFFFFF"
+                android:centerColor="#26FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:centerX="0.5" />
+            <corners android:topLeftRadius="100dp" android:topRightRadius="100dp" />
+        </shape>
+    </item>
+
+    <!-- 5. SECONDARY REFRACTION (Center Shimmer) -->
+    <item android:top="20dp" android:bottom="20dp" android:left="5dp" android:right="5dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="#0DFFFFFF"
+                android:centerColor="#00FFFFFF"
+                android:endColor="#0DFFFFFF" />
+            <corners android:radius="100dp" />
+        </shape>
+    </item>
+
+    <!-- 6. BOTTOM INNER GLOW (Bounce Light) -->
+    <item android:top="55dp" android:left="15dp" android:right="15dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="#26FFFFFF"
+                android:endColor="#00FFFFFF" />
+            <corners android:bottomLeftRadius="100dp" android:bottomRightRadius="100dp" />
         </shape>
     </item>
     
-    <!-- 2. Specular Top Edge (The 'Liquid Drop' catch-light) -->
-    <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="4dp">
-        <shape android:shape="rectangle">
-            <stroke android:width="0.8dp" android:color="#B3FFFFFF" /> <!-- 70% White Rim -->
-            <corners android:radius="100dp" />
-        </shape>
-    </item>
-
-    <!-- 3. Hairline Out Rim (Modern iOS/SimpMusic look) -->
+    <!-- 7. CRISP OUTER HAIRLINE (Final Touch) -->
     <item>
         <shape android:shape="rectangle">
-            <stroke android:width="0.5dp" android:color="#66FFFFFF" />
             <corners android:radius="100dp" />
-        </shape>
-    </item>
-
-    <!-- 4. Subtle Inner Depth -->
-    <item android:top="3dp">
-        <shape android:shape="rectangle">
-            <corners android:radius="100dp" />
-            <stroke android:width="0.5dp" android:color="#1A000000" />
+            <stroke android:width="0.4dp" android:color="#80FFFFFF" /> <!-- 50% White for sharpness -->
         </shape>
     </item>
 </layer-list>

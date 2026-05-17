@@ -155,10 +155,10 @@ class NowPlayingActivity : AppCompatActivity() {
             showTrackOptionsDialog()
         }
         
-        // Enable marquee scrolling
         findViewById<TextView>(R.id.tv_now_playing_title).isSelected = true
         findViewById<TextView>(R.id.tv_now_playing_artist).isSelected = true
         
+        setupBlurViews()
         setupControls()
 
         // Apply WindowInsets to handle Navigation Bar overlap
@@ -166,6 +166,35 @@ class NowPlayingActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             view.setPadding(view.paddingLeft, systemBars.top, view.paddingRight, systemBars.bottom)
             insets
+        }
+    }
+
+    private fun setupBlurViews() {
+        val radius = 20f
+        val decorView = window.decorView
+        val rootView = findViewById<android.view.ViewGroup>(R.id.main)
+        val windowBackground = decorView.background
+
+        val blurVolume = findViewById<eightbitlab.com.blurview.BlurView>(R.id.blur_volume)
+        blurVolume.setupWith(rootView, eightbitlab.com.blurview.RenderScriptBlur(this))
+            .setFrameClearDrawable(windowBackground)
+            .setBlurRadius(radius)
+            .setBlurAutoUpdate(true)
+
+        val blurPlay = findViewById<eightbitlab.com.blurview.BlurView>(R.id.blur_play)
+        blurPlay.setupWith(rootView, eightbitlab.com.blurview.RenderScriptBlur(this))
+            .setFrameClearDrawable(windowBackground)
+            .setBlurRadius(radius)
+            .setBlurAutoUpdate(true)
+
+        // Apply 1.8x Saturation Boost
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            val matrix = android.graphics.ColorMatrix()
+            matrix.setSaturation(1.8f)
+            val filter = android.graphics.ColorMatrixColorFilter(matrix)
+            val effect = android.graphics.RenderEffect.createColorFilterEffect(filter)
+            blurVolume.setRenderEffect(effect)
+            blurPlay.setRenderEffect(effect)
         }
     }
     

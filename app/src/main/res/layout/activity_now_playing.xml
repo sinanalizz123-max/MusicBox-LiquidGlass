@@ -50,56 +50,63 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_back" />
 
     <!-- Volume Bar -->
-    <LinearLayout
-        android:id="@+id/ll_volume"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blur_volume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_liquid_glass"
         android:layout_marginHorizontal="16dp"
-        android:paddingVertical="8dp"
+        android:layout_marginTop="8dp"
+        app:blurOverlayColor="#1AFFFFFF"
         app:layout_constraintTop_toBottomOf="@+id/btn_back">
 
-        <ImageButton
-            android:id="@+id/btn_volume_down"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_remove"
-            app:tint="@color/text_white_opacity_60"
-            android:scaleType="centerInside"
-            android:contentDescription="Volume Down"/>
+        <LinearLayout
+            android:id="@+id/ll_volume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:background="@drawable/bg_liquid_glass"
+            android:paddingVertical="8dp">
 
-        <!-- Volume SeekBar -->
-        <SeekBar
-            android:id="@+id/sb_volume"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:progressDrawable="@drawable/custom_progress"
-            android:thumb="@drawable/thumb_null"
-            android:maxHeight="4dp"
-            android:minHeight="4dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:splitTrack="false" />
+            <ImageButton
+                android:id="@+id/btn_volume_down"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_remove"
+                app:tint="@color/text_white_opacity_60"
+                android:scaleType="centerInside"
+                android:contentDescription="Volume Down"/>
 
-        <ImageButton
-            android:id="@+id/btn_volume_up"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_add"
-            app:tint="@color/text_white_opacity_60"
-            android:scaleType="centerInside"
-            android:contentDescription="Volume Up"/>
-    </LinearLayout>
+            <!-- Volume SeekBar -->
+            <SeekBar
+                android:id="@+id/sb_volume"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:progressDrawable="@drawable/custom_progress"
+                android:thumb="@drawable/thumb_null"
+                android:maxHeight="4dp"
+                android:minHeight="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:splitTrack="false" />
+
+            <ImageButton
+                android:id="@+id/btn_volume_up"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_add"
+                app:tint="@color/text_white_opacity_60"
+                android:scaleType="centerInside"
+                android:contentDescription="Volume Up"/>
+        </LinearLayout>
+    </eightbitlab.com.blurview.BlurView>
 
     <!-- Vinyl Disc Art -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -302,19 +309,26 @@
         app:layout_constraintTop_toTopOf="@+id/btn_play_large"
         app:layout_constraintBottom_toBottomOf="@+id/btn_play_large" />
 
-    <ImageButton
-        android:id="@+id/btn_play_large"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blur_play"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="72dp"
-        android:background="@drawable/bg_liquid_glass"
-        android:src="@drawable/ic_pause"
-        app:tint="@color/white"
-        android:scaleType="centerInside"
-        android:padding="20dp"
+        app:blurOverlayColor="#0DFFFFFF"
         app:layout_constraintStart_toEndOf="@+id/btn_prev_large"
         app:layout_constraintEnd_toStartOf="@+id/btn_next_large"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_play_large"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_liquid_glass"
+            android:src="@drawable/ic_pause"
+            app:tint="@color/white"
+            android:scaleType="centerInside"
+            android:padding="20dp" />
+    </eightbitlab.com.blurview.BlurView>
 
     <ImageButton
         android:id="@+id/btn_next_large"

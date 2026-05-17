@@ -147,7 +147,7 @@ class TracksActivity : AppCompatActivity() {
         }
         rvTracks.adapter = adapter
 
-
+        setupBlurHeader()
 
         if (checkPermission()) {
             loadTracks()
@@ -192,6 +192,28 @@ class TracksActivity : AppCompatActivity() {
         filter.addAction("com.shejan.musicbox.TRACK_DELETED")
         filter.addAction("com.shejan.musicbox.REFRESH_DATA")
         ContextCompat.registerReceiver(this, receiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED)
+    }
+
+    private fun setupBlurHeader() {
+        val radius = 20f
+        val decorView = window.decorView
+        val rootView = findViewById<android.view.ViewGroup>(R.id.main)
+        val windowBackground = decorView.background
+
+        val blurHeader = findViewById<eightbitlab.com.blurview.BlurView>(R.id.blur_header)
+        blurHeader.setupWith(rootView, eightbitlab.com.blurview.RenderScriptBlur(this))
+            .setFrameClearDrawable(windowBackground)
+            .setBlurRadius(radius)
+            .setBlurAutoUpdate(true)
+
+        // Apply 1.8x Saturation Boost
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            val matrix = android.graphics.ColorMatrix()
+            matrix.setSaturation(1.8f)
+            val filter = android.graphics.ColorMatrixColorFilter(matrix)
+            val effect = android.graphics.RenderEffect.createColorFilterEffect(filter)
+            blurHeader.setRenderEffect(effect)
+        }
     }
 
     override fun onStart() {

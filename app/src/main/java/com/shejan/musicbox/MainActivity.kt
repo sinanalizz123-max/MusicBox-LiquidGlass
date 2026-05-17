@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBlurViews() {
-        val radius = 2f // User requested 1px (or very low) for high clarity
+        val radius = 20f // Increased for deep "Liquid" glass effect (Kyant0 style)
         val decorView = window.decorView
         val rootView = findViewById<ViewGroup>(R.id.main) // Target the layout with the background
         val windowBackground = decorView.background
@@ -134,13 +134,14 @@ class MainActivity : AppCompatActivity() {
             .setFrameClearDrawable(windowBackground)
             .setBlurRadius(radius)
             .setBlurAutoUpdate(true)
+            .setOverlayColor(0x1AFFFFFF) // 10% White tint for glass look
 
         val blurBottomNav = findViewById<BlurView>(R.id.blur_bottom_nav)
         blurBottomNav.setupWith(rootView, RenderScriptBlur(this))
             .setFrameClearDrawable(windowBackground)
             .setBlurRadius(radius)
             .setBlurAutoUpdate(true)
-            .setOverlayColor(0x00FFFFFF) // Fully clear overlay
+            .setOverlayColor(0x0DFFFFFF) // Subtle 5% White tint
 
         // Apply 1.5x Saturation Boost (SimpMusic Style)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
