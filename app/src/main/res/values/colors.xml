@@ -62,6 +62,17 @@
     <color name="grad_start">#667eea</color>
     <color name="grad_end">#764ba2</color>
 
+    <!-- Advanced Liquid Glass Colors -->
+    <color name="glass_white_thin">#1AFFFFFF</color> <!-- 10% White -->
+    <color name="glass_white_medium">#4DFFFFFF</color> <!-- 30% White -->
+    <color name="glass_highlight">#CCFFFFFF</color> <!-- 80% White for Specular -->
+    <color name="glass_inner_glow">#40FFFFFF</color> <!-- 25% White Inner Glow -->
+    
+    <!-- iPhone Liquid Gradient (Vibrant) -->
+    <color name="liquid_pink">#FF00CC</color>
+    <color name="liquid_purple">#333399</color>
+    <color name="liquid_blue">#0099FF</color>
+
     <!-- Mini Player Semantic Colors (Light Mode: Cream White Background) -->
     <color name="colorMiniPlayerBackground">#F7F8F0</color> <!-- Cream White -->
     <color name="colorMiniPlayerTextPrimary">#1C1C1E</color>
