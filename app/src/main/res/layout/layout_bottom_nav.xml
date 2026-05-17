@@ -3,20 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottom_nav"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="64dp"
     android:orientation="horizontal"
     android:background="@drawable/bg_liquid_glass"
-    android:paddingTop="12dp"
-    android:paddingBottom="12dp"
-    android:paddingStart="4dp"
-    android:paddingEnd="4dp"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:gravity="center_vertical"
     android:elevation="8dp">
 
-    <!-- Scrollable Area (Weight 1 to take remaining space) -->
+    <!-- Scrollable Area -->
     <HorizontalScrollView
         android:id="@+id/hsv_nav_scroll"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:scrollbars="none"
         android:overScrollMode="never">
@@ -25,6 +24,7 @@
             android:id="@+id/ll_nav_scroll_container"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
         </LinearLayout>
     </HorizontalScrollView>
@@ -33,53 +33,42 @@
     <LinearLayout
         android:id="@+id/ll_nav_fixed_container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <!-- Search -->
         <LinearLayout
             android:id="@+id/nav_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:orientation="vertical"
             android:gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_search"
-                app:tint="@color/colorNavUnselected"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_search"
-                android:textSize="8sp"
-                android:textColor="@color/colorNavUnselected"
-                android:layout_marginTop="4dp"/>
+                app:tint="@color/white"/>
         </LinearLayout>
 
         <!-- Settings -->
         <LinearLayout
             android:id="@+id/nav_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:orientation="vertical"
             android:gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true">
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_settings"
-                app:tint="@color/colorNavUnselected"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_settings"
-                android:textSize="8sp"
-                android:textColor="@color/colorNavUnselected"
-                android:layout_marginTop="4dp"/>
+                app:tint="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 

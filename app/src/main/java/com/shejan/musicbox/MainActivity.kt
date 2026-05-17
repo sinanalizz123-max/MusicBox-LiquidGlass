@@ -14,7 +14,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with MusicBox.  If not, see <https://www.gnu.org/licenses/>.
+ * along with MusicBox.  See <https://www.gnu.org/licenses/>.
  */
 
 package com.shejan.musicbox
@@ -27,6 +27,10 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.ServiceConnection
 import android.content.pm.PackageManager
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
+import android.graphics.RenderEffect
+import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -105,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         // Apply WindowInsets to handle Navigation Bar overlap
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.setPadding(view.paddingLeft, systemBars.top, view.paddingRight, systemBars.bottom)
+            view.setPadding(view.paddingLeft, systemBars.top, view.paddingRight, 0) // No bottom padding to let content flow under
             insets
         }
 
@@ -120,9 +124,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBlurViews() {
-        val radius = 4f // Balanced radius for liquid effect
+        val radius = 2f // User requested 1px (or very low) for high clarity
         val decorView = window.decorView
-        val rootView = decorView.findViewById<ViewGroup>(android.R.id.content)
+        val rootView = findViewById<ViewGroup>(R.id.main) // Target the layout with the background
         val windowBackground = decorView.background
 
         val blurHeader = findViewById<BlurView>(R.id.blur_header)
@@ -136,7 +140,17 @@ class MainActivity : AppCompatActivity() {
             .setFrameClearDrawable(windowBackground)
             .setBlurRadius(radius)
             .setBlurAutoUpdate(true)
-            .setOverlayColor(0x1A000000) // 10% Black Overlay (SimpMusic style)
+            .setOverlayColor(0x00FFFFFF) // Fully clear overlay
+
+        // Apply 1.5x Saturation Boost (SimpMusic Style)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val matrix = ColorMatrix()
+            matrix.setSaturation(1.8f) // High saturation for "Liquid" look
+            val filter = ColorMatrixColorFilter(matrix)
+            val effect = RenderEffect.createColorFilterEffect(filter)
+            blurBottomNav.setRenderEffect(effect)
+            blurHeader.setRenderEffect(effect)
+        }
     }
     
     private fun setupHomeBoxes() {

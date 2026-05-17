@@ -42,12 +42,12 @@ object NavUtils {
         val density = displayMetrics.density
         
         // Account for:
-        // 1. BottomNav internal padding (4dp start + 4dp end = 8dp)
-        // 2. BottomNav external layout margin (16dp * 2 = 32dp) - Common across activities
-        val totalHorizontalDeduction = ((8 + 32) * density).toInt() 
+        // 1. BottomNav internal padding (12dp start + 12dp end = 24dp)
+        // 2. BottomNav external layout margin (32dp * 2 = 64dp)
+        val totalHorizontalDeduction = ((24 + 64) * density).toInt() 
         val utilizableWidth = screenWidth - totalHorizontalDeduction
         
-        val itemWidth = if (utilizableWidth > 0) (utilizableWidth / 5.0).toInt() else 0
+        val itemWidth = if (utilizableWidth > 0) (utilizableWidth / 4.0).toInt() else 0 // Target 4 visible items
 
         // 2. Render Tabs Dynamically based on Order
         renderTabs(activity, bottomNav, activeNavId, itemWidth)
@@ -85,11 +85,15 @@ object NavUtils {
                 
                 // Highlight if active
                 if (tab.viewId == activeNavId) {
-                    icon.setColorFilter(activity.getColor(R.color.colorNavSelected))
-                    text.setTextColor(activity.getColor(R.color.colorNavSelected))
+                    icon.setColorFilter(activity.getColor(R.color.white))
+                    text.setTextColor(activity.getColor(R.color.white))
+                    text.alpha = 1.0f
+                    icon.alpha = 1.0f
                 } else {
-                    icon.setColorFilter(activity.getColor(R.color.colorNavUnselected))
-                    text.setTextColor(activity.getColor(R.color.colorNavUnselected))
+                    icon.setColorFilter(activity.getColor(R.color.white))
+                    text.setTextColor(activity.getColor(R.color.white))
+                    text.alpha = 0.5f
+                    icon.alpha = 0.5f
                 }
                 
                 // Click Listener
@@ -137,13 +141,12 @@ object NavUtils {
         // Highlight logic for fixed items
         if (view is LinearLayout) {
              val icon = view.getChildAt(0) as? ImageView ?: return
-             val text = view.getChildAt(1) as? TextView ?: return
              if (id == activeId) {
-                 icon.setColorFilter(activity.getColor(R.color.colorNavSelected))
-                 text.setTextColor(activity.getColor(R.color.colorNavSelected))
+                 icon.setColorFilter(activity.getColor(R.color.white))
+                 icon.alpha = 1.0f
              } else {
-                 icon.setColorFilter(activity.getColor(R.color.colorNavUnselected))
-                 text.setTextColor(activity.getColor(R.color.colorNavUnselected))
+                 icon.setColorFilter(activity.getColor(R.color.white))
+                 icon.alpha = 0.5f
              }
         }
 
