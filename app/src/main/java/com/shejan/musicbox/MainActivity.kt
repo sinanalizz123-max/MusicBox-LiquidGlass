@@ -34,6 +34,7 @@ import android.os.IBinder
 import android.os.Looper
 import android.provider.MediaStore
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -45,8 +46,6 @@ import androidx.core.view.WindowCompat
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-
-import android.view.ViewGroup
 import eightbitlab.com.blurview.BlurView
 import eightbitlab.com.blurview.RenderScriptBlur
 
@@ -55,13 +54,69 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // ... existing code ...
+        // Check for first run
+        val prefs = getSharedPreferences("MusicBoxPrefs", MODE_PRIVATE)
+        val isFirstRun = prefs.getBoolean("IS_FIRST_RUN", true)
+
+        if (isFirstRun) {
+            val intent = Intent(this, WelcomeActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
+        // Request Permissions
+        val permissionsToRequest = mutableListOf<String>()
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                permissionsToRequest.add(Manifest.permission.POST_NOTIFICATIONS)
+            }
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                permissionsToRequest.add(Manifest.permission.READ_MEDIA_AUDIO)
+            }
+        } else {
+             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                permissionsToRequest.add(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+        }
+
+        if (permissionsToRequest.isNotEmpty()) {
+            ActivityCompat.requestPermissions(this, permissionsToRequest.toTypedArray(), 101)
+        }
+
+        // Check for Default Home Redirect (Only if fresh start and NOT from nav click)
+        if (savedInstanceState == null && !intent.getBooleanExtra("IS_NAV_CLICK", false)) {
+            val homeId = TabManager.getHomeTabId(this)
+            if (homeId != "home") {
+                val target = TabManager.getTargetActivity(homeId)
+                if (target != MainActivity::class.java) {
+                     startActivity(Intent(this, target))
+                     overridePendingTransition(0, 0)
+                     // Keep Main in backstack? Yes, usually.
+                }
+            }
+        }
+
         setContentView(R.layout.activity_main)
 
         setupBlurViews()
 
-        // Apply WindowInsets
-        // ... rest of code
+        // Apply WindowInsets to handle Navigation Bar overlap
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.setPadding(view.paddingLeft, systemBars.top, view.paddingRight, systemBars.bottom)
+            insets
+        }
+
+        // Greeting loaded in onResume
+
+
+        // Helper to setup Nav clicks
+        NavUtils.setupNavigation(this, R.id.nav_home)
+
+        // Setup Home Boxes RecyclerView
+        setupHomeBoxes()
     }
 
     private fun setupBlurViews() {
@@ -79,18 +134,6 @@ class MainActivity : AppCompatActivity() {
         blurBottomNav.setupWith(rootView, RenderScriptBlur(this))
             .setFrameClearDrawable(windowBackground)
             .setBlurRadius(radius)
-    }
-
-        // Greeting loaded in onResume
-
-
-        // Helper to setup Nav clicks
-        NavUtils.setupNavigation(this, R.id.nav_home)
-
-        // Setup Home Boxes RecyclerView
-        setupHomeBoxes()
-        
-
     }
     
     private fun setupHomeBoxes() {
@@ -460,6 +503,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
-
-
