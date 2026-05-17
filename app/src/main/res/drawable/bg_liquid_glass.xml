@@ -1,55 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 1. The ultra-clear liquid base (Transparent, letting blur show through) -->
+    <!-- 1. The Modern Optically Clear Base -->
+    <!-- Minimal white tint for high-end refraction look -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#00FFFFFF" /> <!-- Fully Transparent -->
+            <solid android:color="#1AFFFFFF" /> <!-- 10% White -->
             <corners android:radius="32dp" />
         </shape>
     </item>
     
-    <!-- 2. The Liquid Surface Shimmer (Diagonal gloss) -->
-    <item>
+    <!-- 2. The Hairline Highlight (Top Edge Only) -->
+    <!-- This creates the crisp "Modern" glass edge -->
+    <item android:bottom="0.5dp">
         <shape android:shape="rectangle">
-            <gradient
-                android:angle="135"
-                android:startColor="#1AFFFFFF"
-                android:centerColor="#00FFFFFF"
-                android:endColor="#1AFFFFFF" />
             <corners android:radius="32dp" />
+            <stroke android:width="0.5dp" android:color="#80FFFFFF" />
         </shape>
     </item>
 
-    <!-- 3. Primary Specular Highlight (The 'Wet' look) -->
-    <!-- Creating a sharp reflection at the top -->
-    <item android:top="0dp" android:left="0dp" android:right="0dp" android:bottom="45dp">
+    <!-- 3. The Refraction Rim (Bottom Shadow) -->
+    <!-- Subtle dark edge at the bottom to ground the element -->
+    <item android:top="2dp">
         <shape android:shape="rectangle">
-            <gradient
-                android:angle="270"
-                android:startColor="#E6FFFFFF"
-                android:centerColor="#33FFFFFF"
-                android:endColor="#00FFFFFF" />
-            <corners android:topLeftRadius="32dp" android:topRightRadius="32dp" />
+            <corners android:radius="32dp" />
+            <stroke android:width="1dp" android:color="#1A000000" />
         </shape>
     </item>
 
-    <!-- 4. Inner Glass Edge (Refraction Rim) -->
-    <!-- Mimics the physical edge of thick glass -->
-    <item android:left="0.8dp" android:top="0.8dp" android:right="0.8dp" android:bottom="0.8dp">
+    <!-- 4. Inner Vibrancy (Subtle Inner Glow) -->
+    <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
         <shape android:shape="rectangle">
-            <stroke android:width="0.8dp" android:color="#99FFFFFF" /> <!-- 60% White Crisp Edge -->
-            <corners android:radius="31.2dp" />
-        </shape>
-    </item>
-
-    <!-- 5. Bottom Rim Reflection -->
-    <item android:top="55dp">
-        <shape android:shape="rectangle">
-            <gradient
-                android:angle="90"
-                android:startColor="#66FFFFFF"
-                android:endColor="#00FFFFFF" />
-            <corners android:bottomLeftRadius="32dp" android:bottomRightRadius="32dp" />
+            <stroke android:width="0.5dp" android:color="#33FFFFFF" />
+            <corners android:radius="31dp" />
         </shape>
     </item>
 </layer-list>
