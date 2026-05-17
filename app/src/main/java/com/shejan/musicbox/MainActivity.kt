@@ -143,15 +143,36 @@ class MainActivity : AppCompatActivity() {
             .setBlurAutoUpdate(true)
             .setOverlayColor(0x0DFFFFFF) // Subtle 5% White tint
 
-        // Apply 1.5x Saturation Boost (SimpMusic Style)
+        // Apply 2.0x Saturation & Brightness Boost
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val matrix = ColorMatrix()
-            matrix.setSaturation(1.8f) // High saturation for "Liquid" look
+            matrix.setSaturation(2.0f)
+            
+            val brightness = 1.1f
+            matrix.postConcat(ColorMatrix(floatArrayOf(
+                brightness, 0f, 0f, 0f, 0f,
+                0f, brightness, 0f, 0f, 0f,
+                0f, 0f, brightness, 0f, 0f,
+                0f, 0f, 0f, 1f, 0f
+            )))
+            
             val filter = ColorMatrixColorFilter(matrix)
             val effect = RenderEffect.createColorFilterEffect(filter)
             blurBottomNav.setRenderEffect(effect)
             blurHeader.setRenderEffect(effect)
         }
+        
+        // Liquid Background Animation
+        animateBackground()
+    }
+
+    private fun animateBackground() {
+        val root = findViewById<View>(R.id.main)
+        val anim = android.view.animation.AlphaAnimation(0.85f, 1.0f)
+        anim.duration = 4000
+        anim.repeatMode = android.view.animation.Animation.REVERSE
+        anim.repeatCount = android.view.animation.Animation.INFINITE
+        root.startAnimation(anim)
     }
     
     private fun setupHomeBoxes() {

@@ -1,72 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 1. BASE FROSTED LAYER (Ultra-Clear Refraction) -->
+    <!-- 1. ULTRA-PURE REFRACTION BASE -->
+    <!-- Mimics the deep refraction of thick liquid glass -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#0DFFFFFF" /> <!-- 5% White base for clarity -->
+            <solid android:color="#08FFFFFF" /> <!-- 3% White for extreme clarity -->
             <corners android:radius="100dp" />
         </shape>
     </item>
 
-    <!-- 2. INNER REFRACTION DEPTH (Set-in effect) -->
+    <!-- 2. INNER LIQUID DEPTH (Deep Set-in) -->
+    <!-- Adds the "liquid" thickness feel -->
     <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
         <shape android:shape="rectangle">
-            <stroke android:width="3dp" android:color="#08000000" /> <!-- Subtle 3% Black inner shadow -->
+            <stroke android:width="4dp" android:color="#0A000000" /> <!-- 4% Black inner depth -->
             <corners android:radius="99dp" />
         </shape>
     </item>
 
-    <!-- 3. CHROMATIC RIM (Outer Hairline) -->
+    <!-- 3. CHROMATIC RIM (Refractive Hairline) -->
+    <!-- Gradient stroke to catch light like a real glass edge -->
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="100dp" />
             <stroke
-                android:width="0.8dp"
-                android:color="#4DFFFFFF" /> <!-- 30% White Rim -->
+                android:width="1dp"
+                android:color="#4DFFFFFF" /> <!-- 30% White Rim Base -->
         </shape>
     </item>
 
-    <!-- 4. MAIN SPECULAR HIGHLIGHT (Top Reflection) -->
-    <item android:top="1dp" android:left="12dp" android:right="12dp" android:bottom="45dp">
+    <!-- 4. LENS SPECULAR REFLECTION (Top-Down Light) -->
+    <!-- The "Liquid" signature - a sharp lens-like reflection -->
+    <item android:top="1dp" android:left="10dp" android:right="10dp" android:bottom="40dp">
         <shape android:shape="rectangle">
             <gradient
                 android:angle="270"
-                android:startColor="#CCFFFFFF"
-                android:centerColor="#26FFFFFF"
+                android:startColor="#E6FFFFFF"
+                android:centerColor="#33FFFFFF"
                 android:endColor="#00FFFFFF"
                 android:centerX="0.5" />
             <corners android:topLeftRadius="100dp" android:topRightRadius="100dp" />
         </shape>
     </item>
 
-    <!-- 5. SECONDARY REFRACTION (Center Shimmer) -->
-    <item android:top="20dp" android:bottom="20dp" android:left="5dp" android:right="5dp">
+    <!-- 5. AMBIENT CAUSTICS (Secondary Reflection) -->
+    <item android:top="25dp" android:bottom="15dp" android:left="5dp" android:right="5dp">
         <shape android:shape="rectangle">
             <gradient
                 android:angle="135"
-                android:startColor="#0DFFFFFF"
+                android:startColor="#1AFFFFFF"
                 android:centerColor="#00FFFFFF"
-                android:endColor="#0DFFFFFF" />
+                android:endColor="#1AFFFFFF" />
             <corners android:radius="100dp" />
         </shape>
     </item>
 
-    <!-- 6. BOTTOM INNER GLOW (Bounce Light) -->
-    <item android:top="55dp" android:left="15dp" android:right="15dp">
+    <!-- 6. BOTTOM BOUNCE LIGHT (Inner Glow) -->
+    <item android:top="50dp" android:left="20dp" android:right="20dp">
         <shape android:shape="rectangle">
             <gradient
                 android:angle="90"
-                android:startColor="#26FFFFFF"
+                android:startColor="#4DFFFFFF"
                 android:endColor="#00FFFFFF" />
             <corners android:bottomLeftRadius="100dp" android:bottomRightRadius="100dp" />
         </shape>
     </item>
     
-    <!-- 7. CRISP OUTER HAIRLINE (Final Touch) -->
+    <!-- 7. ULTRA-SHARP OUTER RIM -->
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="100dp" />
-            <stroke android:width="0.4dp" android:color="#80FFFFFF" /> <!-- 50% White for sharpness -->
+            <stroke android:width="0.3dp" android:color="#B3FFFFFF" /> <!-- 70% White for razor sharpness -->
         </shape>
     </item>
 </layer-list>

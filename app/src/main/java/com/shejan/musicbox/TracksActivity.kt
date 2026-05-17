@@ -206,10 +206,19 @@ class TracksActivity : AppCompatActivity() {
             .setBlurRadius(radius)
             .setBlurAutoUpdate(true)
 
-        // Apply 1.8x Saturation Boost
+        // Apply 2.0x Saturation & Brightness Boost
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
             val matrix = android.graphics.ColorMatrix()
-            matrix.setSaturation(1.8f)
+            matrix.setSaturation(2.0f)
+            
+            val brightness = 1.1f
+            matrix.postConcat(android.graphics.ColorMatrix(floatArrayOf(
+                brightness, 0f, 0f, 0f, 0f,
+                0f, brightness, 0f, 0f, 0f,
+                0f, 0f, brightness, 0f, 0f,
+                0f, 0f, 0f, 1f, 0f
+            )))
+            
             val filter = android.graphics.ColorMatrixColorFilter(matrix)
             val effect = android.graphics.RenderEffect.createColorFilterEffect(filter)
             blurHeader.setRenderEffect(effect)

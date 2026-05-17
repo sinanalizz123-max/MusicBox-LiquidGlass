@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.exifinterface)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.palette.ktx)
     implementation("com.github.Dimezis:BlurView:version-2.0.3")
 }
 

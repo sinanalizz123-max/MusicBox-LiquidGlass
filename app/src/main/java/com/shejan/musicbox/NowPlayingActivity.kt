@@ -187,10 +187,20 @@ class NowPlayingActivity : AppCompatActivity() {
             .setBlurRadius(radius)
             .setBlurAutoUpdate(true)
 
-        // Apply 1.8x Saturation Boost
+        // Apply 2.0x Saturation & Brightness Boost (Liquid Signature)
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
             val matrix = android.graphics.ColorMatrix()
-            matrix.setSaturation(1.8f)
+            matrix.setSaturation(2.0f)
+            
+            // Subtle Brightness Boost
+            val brightness = 1.1f 
+            matrix.postConcat(android.graphics.ColorMatrix(floatArrayOf(
+                brightness, 0f, 0f, 0f, 0f,
+                0f, brightness, 0f, 0f, 0f,
+                0f, 0f, brightness, 0f, 0f,
+                0f, 0f, 0f, 1f, 0f
+            )))
+
             val filter = android.graphics.ColorMatrixColorFilter(matrix)
             val effect = android.graphics.RenderEffect.createColorFilterEffect(filter)
             blurVolume.setRenderEffect(effect)
@@ -483,6 +493,18 @@ class NowPlayingActivity : AppCompatActivity() {
             MusicUtils.loadTrackArt(this, track.id, track.albumId, track.uri, ivAlbumArt)
             loadedTrackId = track.id
             loadedContentVersion = MusicUtils.contentVersion
+            
+            // Extract Palette for Dynamic Tinting
+            val drawable = ivAlbumArt.drawable
+            if (drawable is android.graphics.drawable.BitmapDrawable) {
+                androidx.palette.graphics.Palette.from(drawable.bitmap).generate { palette ->
+                    val dominantColor = palette?.getDominantColor(Color.WHITE) ?: Color.WHITE
+                    val transparentTint = Color.argb(30, Color.red(dominantColor), Color.green(dominantColor), Color.blue(dominantColor))
+                    
+                    findViewById<eightbitlab.com.blurview.BlurView>(R.id.blur_volume).setOverlayColor(transparentTint)
+                    findViewById<eightbitlab.com.blurview.BlurView>(R.id.blur_play).setOverlayColor(transparentTint)
+                }
+            }
         }
         
         // Update Duration FIRST to avoid progress clamping

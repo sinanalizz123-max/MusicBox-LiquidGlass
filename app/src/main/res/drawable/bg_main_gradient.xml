@@ -7,56 +7,80 @@
         </shape>
     </item>
 
-    <!-- 2. Ultra-Saturated Liquid Blobs (Mesh Style) -->
-    <!-- Magenta Blob -->
-    <item android:top="-300dp" android:left="-250dp">
+    <!-- 2. ULTRA-SATURATED LIQUID BLOBS (Vibrant Mesh Style) -->
+    
+    <!-- Top Left: Electric Magenta -->
+    <item android:top="-200dp" android:left="-150dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="600dp"
+                android:startColor="#E6FF0080"
+                android:endColor="#00000000"
+                android:centerX="0.5"
+                android:centerY="0.5" />
+        </shape>
+    </item>
+
+    <!-- Bottom Right: Cyan Glow -->
+    <item android:bottom="-200dp" android:right="-150dp">
         <shape android:shape="oval">
             <gradient
                 android:type="radial"
                 android:gradientRadius="700dp"
-                android:startColor="#CCFF0080"
+                android:startColor="#E600E5FF"
                 android:endColor="#00000000"
                 android:centerX="0.5"
                 android:centerY="0.5" />
         </shape>
     </item>
 
-    <!-- Cyan/Electric Blue Blob -->
-    <item android:bottom="-250dp" android:right="-200dp">
+    <!-- Top Right: Deep Purple Ripple -->
+    <item android:top="-50dp" android:right="-250dp">
         <shape android:shape="oval">
             <gradient
                 android:type="radial"
-                android:gradientRadius="650dp"
-                android:startColor="#CC00E5FF"
-                android:endColor="#00000000"
-                android:centerX="0.5"
-                android:centerY="0.5" />
-        </shape>
-    </item>
-
-    <!-- Neon Purple Blob -->
-    <item android:top="0dp" android:right="-300dp">
-        <shape android:shape="oval">
-            <gradient
-                android:type="radial"
-                android:gradientRadius="800dp"
-                android:startColor="#B37A00FF"
+                android:gradientRadius="750dp"
+                android:startColor="#CC7A00FF"
                 android:endColor="#00000000"
                 android:centerX="0.5"
                 android:centerY="0.5" />
         </shape>
     </item>
     
-    <!-- Vivid Blue filling blob -->
-    <item android:bottom="0dp" android:left="-150dp">
+    <!-- Bottom Left: Neon Blue Pulse -->
+    <item android:bottom="-100dp" android:left="-200dp">
         <shape android:shape="oval">
             <gradient
                 android:type="radial"
-                android:gradientRadius="600dp"
-                android:startColor="#990022FF"
+                android:gradientRadius="650dp"
+                android:startColor="#CC0044FF"
                 android:endColor="#00000000"
                 android:centerX="0.5"
                 android:centerY="0.5" />
+        </shape>
+    </item>
+
+    <!-- Center: Soft Ambient Glow (The "Liquid" connection) -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="500dp"
+                android:startColor="#1AFFFFFF"
+                android:endColor="#00000000"
+                android:centerX="0.5"
+                android:centerY="0.5" />
+        </shape>
+    </item>
+
+    <!-- 3. TOP-DOWN LIGHT LEAK -->
+    <item android:top="-100dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#33FFFFFF"
+                android:endColor="#00000000" />
         </shape>
     </item>
 </layer-list>
