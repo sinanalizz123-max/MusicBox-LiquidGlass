@@ -51,7 +51,7 @@ dependencies {
     implementation(libs.exifinterface)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
-    implementation("com.github.Dimezis:BlurView:2.0.3")
+    implementation("com.github.Dimezis:BlurView:version-2.0.3")
 }
 
 tasks.register("copyMappingFile") {
