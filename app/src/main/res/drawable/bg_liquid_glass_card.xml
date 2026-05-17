@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Main Glass Body -->
+    <!-- 1. Body -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/glass_white_medium" />
+            <solid android:color="#33FFFFFF" /> <!-- 20% White -->
             <corners android:radius="20dp" />
         </shape>
     </item>
 
-    <!-- Inner Glow -->
+    <!-- 2. Inner Glow -->
     <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
         <shape android:shape="rectangle">
-            <stroke android:width="0.5dp" android:color="@color/glass_inner_glow" />
+            <stroke android:width="0.8dp" android:color="#4DFFFFFF" />
             <corners android:radius="19dp" />
         </shape>
     </item>
 
-    <!-- Top Gloss -->
-    <item android:bottom="30dp">
+    <!-- 3. Specular Gloss (Top half) -->
+    <item android:bottom="35dp" android:left="2dp" android:right="2dp" android:top="0dp">
         <shape android:shape="rectangle">
             <gradient
                 android:angle="270"
-                android:startColor="@color/glass_highlight"
-                android:endColor="@android:color/transparent" />
+                android:startColor="#66FFFFFF"
+                android:endColor="#00FFFFFF" />
             <corners android:topLeftRadius="20dp" android:topRightRadius="20dp" />
         </shape>
     </item>
 
-    <!-- Outer Border -->
+    <!-- 4. Outer Rim -->
     <item>
         <shape android:shape="rectangle">
-            <stroke android:width="1dp" android:color="@color/glass_border" />
+            <stroke android:width="0.5dp" android:color="#66FFFFFF" />
             <corners android:radius="20dp" />
         </shape>
     </item>
