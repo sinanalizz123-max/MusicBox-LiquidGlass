@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBlurViews() {
-        val radius = 1f // User requested 1px for high clarity
+        val radius = 4f // Balanced radius for liquid effect
         val decorView = window.decorView
         val rootView = decorView.findViewById<ViewGroup>(android.R.id.content)
         val windowBackground = decorView.background
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
             .setFrameClearDrawable(windowBackground)
             .setBlurRadius(radius)
             .setBlurAutoUpdate(true)
-            .setOverlayColor(0x0DFFFFFF) // Ultra-minimal vibrancy tint
+            .setOverlayColor(0x1A000000) // 10% Black Overlay (SimpMusic style)
     }
     
     private fun setupHomeBoxes() {

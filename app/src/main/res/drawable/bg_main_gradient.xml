@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Base Color (Ultra-Deep Liquid Blue) -->
+    <!-- Deepest Space Base (SimpMusic style dark base) -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#0F1035" />
+            <solid android:color="#020205" />
         </shape>
     </item>
 
-    <!-- Liquid Blob 1 (Top Left - High Saturation Pink) -->
-    <item android:top="-200dp" android:left="-200dp">
-        <shape android:shape="oval">
-            <gradient
-                android:type="radial"
-                android:gradientRadius="500dp"
-                android:startColor="#99FF00CC"
-                android:endColor="#00000000"
-                android:centerX="0.5"
-                android:centerY="0.5" />
-        </shape>
-    </item>
-
-    <!-- Liquid Blob 2 (Bottom Right - High Saturation Blue) -->
-    <item android:bottom="-150dp" android:right="-150dp">
-        <shape android:shape="oval">
-            <gradient
-                android:type="radial"
-                android:gradientRadius="450dp"
-                android:startColor="#990099FF"
-                android:endColor="#00000000"
-                android:centerX="0.5"
-                android:centerY="0.5" />
-        </shape>
-    </item>
-
-    <!-- Liquid Blob 3 (Top Right - High Saturation Purple) -->
-    <item android:top="-100dp" android:right="-100dp">
+    <!-- Liquid Blob 1 (Electric Pink - High Saturation) -->
+    <item android:top="-250dp" android:left="-200dp">
         <shape android:shape="oval">
             <gradient
                 android:type="radial"
                 android:gradientRadius="600dp"
-                android:startColor="#807A22FF"
+                android:startColor="#B3FF0080"
+                android:endColor="#00000000"
+                android:centerX="0.5"
+                android:centerY="0.5" />
+        </shape>
+    </item>
+
+    <!-- Liquid Blob 2 (Neon Blue) -->
+    <item android:bottom="-200dp" android:right="-150dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="550dp"
+                android:startColor="#B300E5FF"
+                android:endColor="#00000000"
+                android:centerX="0.5"
+                android:centerY="0.5" />
+        </shape>
+    </item>
+
+    <!-- Liquid Blob 3 (Cyber Purple) -->
+    <item android:top="100dp" android:right="-200dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="700dp"
+                android:startColor="#997000FF"
+                android:endColor="#00000000"
+                android:centerX="0.5"
+                android:centerY="0.5" />
+        </shape>
+    </item>
+    
+    <!-- Liquid Blob 4 (Deep Violet for filling gaps) -->
+    <item android:bottom="50dp" android:left="-100dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="500dp"
+                android:startColor="#804D00FF"
                 android:endColor="#00000000"
                 android:centerX="0.5"
                 android:centerY="0.5" />
