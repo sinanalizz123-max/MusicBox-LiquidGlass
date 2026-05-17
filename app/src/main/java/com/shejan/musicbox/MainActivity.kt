@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBlurViews() {
-        val radius = 20f
+        val radius = 1f // User requested 1px for high clarity
         val decorView = window.decorView
         val rootView = decorView.findViewById<ViewGroup>(android.R.id.content)
         val windowBackground = decorView.background
@@ -129,11 +129,14 @@ class MainActivity : AppCompatActivity() {
         blurHeader.setupWith(rootView, RenderScriptBlur(this))
             .setFrameClearDrawable(windowBackground)
             .setBlurRadius(radius)
+            .setBlurAutoUpdate(true)
 
         val blurBottomNav = findViewById<BlurView>(R.id.blur_bottom_nav)
         blurBottomNav.setupWith(rootView, RenderScriptBlur(this))
             .setFrameClearDrawable(windowBackground)
             .setBlurRadius(radius)
+            .setBlurAutoUpdate(true)
+            .setOverlayColor(0x0DFFFFFF) // Ultra-minimal vibrancy tint
     }
     
     private fun setupHomeBoxes() {

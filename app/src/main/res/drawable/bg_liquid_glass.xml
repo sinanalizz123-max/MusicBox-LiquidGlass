@@ -1,37 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 1. The Modern Optically Clear Base -->
-    <!-- Minimal white tint for high-end refraction look -->
+    <!-- 1. The High-Clarity Liquid Pill -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#1AFFFFFF" /> <!-- 10% White -->
-            <corners android:radius="32dp" />
+            <solid android:color="#14FFFFFF" /> <!-- 8% White - Extremely Clear -->
+            <corners android:radius="100dp" /> <!-- Full Pill Shape -->
         </shape>
     </item>
     
-    <!-- 2. The Hairline Highlight (Top Edge Only) -->
-    <!-- This creates the crisp "Modern" glass edge -->
-    <item android:bottom="0.5dp">
-        <shape android:shape="rectangle">
-            <corners android:radius="32dp" />
-            <stroke android:width="0.5dp" android:color="#80FFFFFF" />
-        </shape>
-    </item>
-
-    <!-- 3. The Refraction Rim (Bottom Shadow) -->
-    <!-- Subtle dark edge at the bottom to ground the element -->
-    <item android:top="2dp">
-        <shape android:shape="rectangle">
-            <corners android:radius="32dp" />
-            <stroke android:width="1dp" android:color="#1A000000" />
-        </shape>
-    </item>
-
-    <!-- 4. Inner Vibrancy (Subtle Inner Glow) -->
+    <!-- 2. The Specular Refraction (Modern iOS style) -->
     <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
         <shape android:shape="rectangle">
-            <stroke android:width="0.5dp" android:color="#33FFFFFF" />
-            <corners android:radius="31dp" />
+            <stroke android:width="0.5dp" android:color="#66FFFFFF" />
+            <corners android:radius="99dp" />
+        </shape>
+    </item>
+
+    <!-- 3. Shadow for Depth -->
+    <item android:top="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="100dp" />
+            <stroke android:width="1dp" android:color="#1A000000" />
         </shape>
     </item>
 </layer-list>

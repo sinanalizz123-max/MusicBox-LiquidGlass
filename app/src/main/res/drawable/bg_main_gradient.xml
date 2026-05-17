@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Base Color (Deep Liquid Blue) -->
+    <!-- Base Color (Ultra-Deep Liquid Blue) -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#1A1B4B" />
+            <solid android:color="#0F1035" />
         </shape>
     </item>
 
-    <!-- Liquid Blob 1 (Top Left - Pink/Magenta) -->
-    <item android:top="-150dp" android:left="-150dp">
+    <!-- Liquid Blob 1 (Top Left - High Saturation Pink) -->
+    <item android:top="-200dp" android:left="-200dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="500dp"
+                android:startColor="#99FF00CC"
+                android:endColor="#00000000"
+                android:centerX="0.5"
+                android:centerY="0.5" />
+        </shape>
+    </item>
+
+    <!-- Liquid Blob 2 (Bottom Right - High Saturation Blue) -->
+    <item android:bottom="-150dp" android:right="-150dp">
         <shape android:shape="oval">
             <gradient
                 android:type="radial"
                 android:gradientRadius="450dp"
-                android:startColor="#66FF00CC"
+                android:startColor="#990099FF"
                 android:endColor="#00000000"
                 android:centerX="0.5"
                 android:centerY="0.5" />
         </shape>
     </item>
 
-    <!-- Liquid Blob 2 (Bottom Right - Cyan/Blue) -->
-    <item android:bottom="-100dp" android:right="-100dp">
-        <shape android:shape="oval">
-            <gradient
-                android:type="radial"
-                android:gradientRadius="400dp"
-                android:startColor="#660099FF"
-                android:endColor="#00000000"
-                android:centerX="0.5"
-                android:centerY="0.5" />
-        </shape>
-    </item>
-
-    <!-- Liquid Blob 3 (Center - Purple) -->
-    <item>
+    <!-- Liquid Blob 3 (Top Right - High Saturation Purple) -->
+    <item android:top="-100dp" android:right="-100dp">
         <shape android:shape="oval">
             <gradient
                 android:type="radial"
                 android:gradientRadius="600dp"
-                android:startColor="#4D333399"
+                android:startColor="#807A22FF"
                 android:endColor="#00000000"
-                android:centerX="0.7"
-                android:centerY="0.4" />
+                android:centerX="0.5"
+                android:centerY="0.5" />
         </shape>
     </item>
 </layer-list>
