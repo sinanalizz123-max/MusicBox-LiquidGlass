@@ -51,6 +51,17 @@
     <!-- SeekBar Border -->
     <color name="colorSeekBarBorder">#454545</color> <!-- Light Black -->
 
+    <!-- Liquid Glass Colors -->
+    <color name="glass_white">#4DFFFFFF</color> <!-- 30% White -->
+    <color name="glass_white_high">#80FFFFFF</color> <!-- 50% White -->
+    <color name="glass_border">#33FFFFFF</color> <!-- 20% White Border -->
+    <color name="glass_dark">#4D000000</color> <!-- 30% Black -->
+    <color name="glass_dark_high">#80000000</color> <!-- 50% Black -->
+    
+    <!-- Background Gradients -->
+    <color name="grad_start">#667eea</color>
+    <color name="grad_end">#764ba2</color>
+
     <!-- Mini Player Semantic Colors (Light Mode: Cream White Background) -->
     <color name="colorMiniPlayerBackground">#F7F8F0</color> <!-- Cream White -->
     <color name="colorMiniPlayerTextPrimary">#1C1C1E</color>

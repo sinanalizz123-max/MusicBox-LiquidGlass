@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:background="@drawable/bg_main_gradient">
 
     <!-- Sticky Header Box -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:paddingVertical="8dp"
         android:paddingHorizontal="16dp"
-        android:background="@drawable/bg_header_box"
+        android:background="@drawable/bg_liquid_glass"
 
         android:layout_marginTop="8dp"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="TRACKS"
-            android:textColor="@color/colorHeaderElement"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             android:letterSpacing="-0.05"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0 Songs"
-            android:textColor="@color/colorHeaderElementSecondary"
+            android:textColor="@color/text_white_opacity_60"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@+id/tv_header_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_header_title"/>
@@ -68,9 +68,9 @@
                 android:layout_height="32dp"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:background="@drawable/bg_red_square_button"
+                android:background="@drawable/bg_liquid_glass_card"
                 android:src="@drawable/ic_sort"
-                app:tint="@android:color/white"
+                app:tint="@color/white"
                 android:layout_marginEnd="8dp" />
             <ImageButton
                 android:id="@+id/btn_header_shuffle"
@@ -78,9 +78,9 @@
                 android:layout_height="32dp"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:background="@drawable/bg_red_square_button"
+                android:background="@drawable/bg_liquid_glass_card"
                 android:src="@drawable/ic_shuffle"
-                app:tint="@android:color/white"
+                app:tint="@color/white"
                 android:layout_marginEnd="8dp" />
             <ImageButton
                 android:id="@+id/btn_header_repeat"
@@ -88,9 +88,9 @@
                 android:layout_height="32dp"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:background="@drawable/bg_red_square_button"
+                android:background="@drawable/bg_liquid_glass_card"
                 android:src="@drawable/ic_repeat"
-                app:tint="@android:color/white"
+                app:tint="@color/white"
                 android:layout_marginEnd="0dp" />
             <ImageButton
                 android:id="@+id/btn_edit"
@@ -98,9 +98,9 @@
                 android:layout_height="32dp"
                 android:padding="6dp"
                 android:scaleType="fitCenter"
-                android:background="@drawable/bg_red_square_button"
+                android:background="@drawable/bg_liquid_glass_card"
                 android:src="@drawable/ic_edit"
-                app:tint="@android:color/white"
+                app:tint="@color/white"
                 android:layout_marginStart="16dp"
                 android:visibility="gone"
                 tools:visibility="visible" />

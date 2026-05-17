@@ -16,10 +16,10 @@
 
     <style name="Theme.MusicBox" parent="Base.Theme.MusicBox">
         <!-- Window background fills the status bar area — must match app background -->
-        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:windowBackground">@color/grad_start</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">@bool/isLightStatusBar</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
     
     <!-- Custom AlertDialog Theme -->
