@@ -10,75 +10,69 @@
     <color name="primary_red">#f20d0d</color>
     <color name="primary_green">#4CAF50</color>
     <color name="background_dark">#000000</color>
+
     <color name="text_white_opacity_40">#66FFFFFF</color>
     <color name="text_white_opacity_60">#99FFFFFF</color>
     <color name="text_white_opacity_30">#4DFFFFFF</color>
     <color name="text_white_opacity_10">#1AFFFFFF</color>
+
     <color name="nav_text_selected">#FFFFFF</color>
-    <color name="nav_text_unselected">#71717a</color> <!-- Zinc 500 -->
-    <color name="wireframe_border">#26FFFFFF</color> <!-- 15% White -->
+    <color name="nav_text_unselected">#A8B0C7</color>
+
+    <color name="wireframe_border">#26FFFFFF</color>
     <color name="bg_card_section">#0D0D0D</color>
-    
-    <!-- Semantic Colors (Light Mode Defaults) -->
-    <color name="colorBackground">#F7F8F0</color> <!-- User Requested Background -->
-    <color name="colorSurface">#FFFFFF</color> <!-- User Requested Card Color (Pure White) -->
-    <color name="colorStroke">#555555</color> <!-- Light Black Border -->
-    <color name="colorWireframeCorner">#8E8E93</color> <!-- System Gray (Distinct) -->
-    <color name="colorHeaderBorder">#000000</color> <!-- New Header Border for Light Mode -->
-    <color name="colorHeaderElement">#1C1C1E</color> <!-- Header Text and Icons (Dark) -->
-    <color name="colorHeaderElementSecondary">#8E8E93</color> <!-- Subtitle text (Gray) -->
-    <color name="colorTextPrimary">#1C1C1E</color> <!-- Dark Dark Gray -->
-    <color name="colorTextSecondary">#8E8E93</color> <!-- Gray -->
-    <color name="colorIcon">#1C1C1E</color>
-    <color name="colorIconSecondary">#8E8E93</color>
-    
-    <!-- Nav Semantic Colors -->
-    <color name="colorBottomNavBackground">#F7F8F0</color> <!-- Pure White Nav Bar -->
-    <color name="colorNavBorder">#355872</color> <!-- User Requested Nav Border -->
-    <color name="colorNavSelected">#000000</color> <!-- Black for selected -->
-    <color name="colorNavUnselected">#66000000</color> <!-- 40% Black for unselected -->
+
+    <color name="colorBackground">#0F1117</color>
+    <color name="colorSurface">#1A1D26</color>
+    <color name="colorStroke">#33FFFFFF</color>
+    <color name="colorWireframeCorner">#99FFFFFF</color>
+    <color name="colorHeaderBorder">#40FFFFFF</color>
+    <color name="colorHeaderElement">#FFFFFFFF</color>
+    <color name="colorHeaderElementSecondary">#AAB4C8</color>
+    <color name="colorTextPrimary">#FFFFFFFF</color>
+    <color name="colorTextSecondary">#A8B0C7</color>
+    <color name="colorIcon">#FFFFFFFF</color>
+    <color name="colorIconSecondary">#A8B0C7</color>
+
+    <color name="colorBottomNavBackground">#14FFFFFF</color>
+    <color name="colorNavBorder">#40FFFFFF</color>
+    <color name="colorNavSelected">#FFFFFFFF</color>
+    <color name="colorNavUnselected">#80D0D7E6</color>
+
     <color name="primary_red_opacity_50">#80f20d0d</color>
     <color name="switch_thumb_off">#FFFFFF</color>
     <color name="switch_track_off">#E5E5EA</color>
-    
-    <!-- Vinyl/CD Artwork Semantic Colors -->
-    <color name="colorVinylBase">#181818</color> <!-- Reverted to Black -->
-    <color name="colorVinylStroke">#282828</color> <!-- Reverted to Dark Stroke -->
-    <color name="colorVinylLabel">#FFC62828</color> <!-- Red Label -->
-    <color name="colorVinylCenter">#181818</color> <!-- Matches Base for seamless look -->
-    <color name="colorVinylRing">#1A000000</color> <!-- 10% Black Ring (Shadow) -->
-    
-    <!-- SeekBar Border -->
-    <color name="colorSeekBarBorder">#454545</color> <!-- Light Black -->
 
-    <!-- Liquid Glass Colors -->
-    <color name="glass_white">#4DFFFFFF</color> <!-- 30% White -->
-    <color name="glass_white_high">#80FFFFFF</color> <!-- 50% White -->
-    <color name="glass_border">#33FFFFFF</color> <!-- 20% White Border -->
-    <color name="glass_dark">#4D000000</color> <!-- 30% Black -->
-    <color name="glass_dark_high">#80000000</color> <!-- 50% Black -->
-    
-    <!-- Background Gradients -->
-    <color name="grad_start">#667eea</color>
-    <color name="grad_end">#764ba2</color>
+    <color name="colorVinylBase">#181818</color>
+    <color name="colorVinylStroke">#282828</color>
+    <color name="colorVinylLabel">#FFC62828</color>
+    <color name="colorVinylCenter">#181818</color>
+    <color name="colorVinylRing">#1A000000</color>
 
-    <!-- Advanced Liquid Glass Colors -->
-    <color name="glass_white_thin">#1AFFFFFF</color> <!-- 10% White -->
-    <color name="glass_white_medium">#4DFFFFFF</color> <!-- 30% White -->
-    <color name="glass_highlight">#CCFFFFFF</color> <!-- 80% White for Specular -->
-    <color name="glass_inner_glow">#40FFFFFF</color> <!-- 25% White Inner Glow -->
-    
-    <!-- iPhone Liquid Gradient (Vibrant) -->
-    <color name="liquid_pink">#FF00CC</color>
-    <color name="liquid_purple">#333399</color>
-    <color name="liquid_blue">#0099FF</color>
+    <color name="colorSeekBarBorder">#454545</color>
 
-    <!-- Mini Player Semantic Colors (Light Mode: Cream White Background) -->
-    <color name="colorMiniPlayerBackground">#F7F8F0</color> <!-- Cream White -->
-    <color name="colorMiniPlayerTextPrimary">#1C1C1E</color>
-    <color name="colorMiniPlayerTextSecondary">#8E8E93</color>
-    <color name="colorMiniPlayerIcon">#1C1C1E</color>
+    <color name="glass_white">#26FFFFFF</color>
+    <color name="glass_white_high">#99FFFFFF</color>
+    <color name="glass_border">#52FFFFFF</color>
+    <color name="glass_dark">#66000000</color>
+    <color name="glass_dark_high">#AA000000</color>
 
-    <!-- Header Box Semantic Colors (Light Mode: Cream White Background) -->
-    <color name="colorHeaderBoxBackground">#F7F8F0</color> <!-- Cream White -->
+    <color name="grad_start">#0F172A</color>
+    <color name="grad_end">#1E293B</color>
+
+    <color name="glass_white_thin">#14FFFFFF</color>
+    <color name="glass_white_medium">#40FFFFFF</color>
+    <color name="glass_highlight">#F2FFFFFF</color>
+    <color name="glass_inner_glow">#59FFFFFF</color>
+
+    <color name="liquid_pink">#FF4FD8</color>
+    <color name="liquid_purple">#7C4DFF</color>
+    <color name="liquid_blue">#3BA7FF</color>
+
+    <color name="colorMiniPlayerBackground">#1AFFFFFF</color>
+    <color name="colorMiniPlayerTextPrimary">#FFFFFFFF</color>
+    <color name="colorMiniPlayerTextSecondary">#A8B0C7</color>
+    <color name="colorMiniPlayerIcon">#FFFFFFFF</color>
+
+    <color name="colorHeaderBoxBackground">#1AFFFFFF</color>
 </resources>
