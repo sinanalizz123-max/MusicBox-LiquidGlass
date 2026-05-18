@@ -3,22 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottom_nav"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
+    android:layout_height="72dp"
     android:orientation="horizontal"
     android:background="@drawable/bg_liquid_glass"
-    android:paddingStart="12dp"
-    android:paddingEnd="12dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
     android:gravity="center_vertical"
-    android:elevation="8dp">
+    android:elevation="18dp"
+    android:clipToPadding="false">
 
-    <!-- Scrollable Area -->
     <HorizontalScrollView
         android:id="@+id/hsv_nav_scroll"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:scrollbars="none"
-        android:overScrollMode="never">
+        android:overScrollMode="never"
+        android:fadingEdge="none">
 
         <LinearLayout
             android:id="@+id/ll_nav_scroll_container"
@@ -29,7 +30,6 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <!-- Fixed Area (Right) -->
     <LinearLayout
         android:id="@+id/ll_nav_fixed_container"
         android:layout_width="wrap_content"
@@ -37,36 +37,39 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <!-- Search -->
         <LinearLayout
             android:id="@+id/nav_search"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="6dp"
             android:orientation="vertical"
             android:gravity="center"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/bg_liquid_glass_button"
             android:clickable="true"
             android:focusable="true">
+
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:alpha="0.95"
                 android:src="@drawable/ic_search"
                 app:tint="@color/white"/>
         </LinearLayout>
 
-        <!-- Settings -->
         <LinearLayout
             android:id="@+id/nav_settings"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
             android:orientation="vertical"
             android:gravity="center"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/bg_liquid_glass_button"
             android:clickable="true"
             android:focusable="true">
+
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:alpha="0.95"
                 android:src="@drawable/ic_settings"
                 app:tint="@color/white"/>
         </LinearLayout>
